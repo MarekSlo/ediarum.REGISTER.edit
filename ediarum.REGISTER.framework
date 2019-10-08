@@ -4174,7 +4174,7 @@ org_location[to]</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::item/note</String>
+														<String>ancestor-or-self::item[not(ancestor::item) and not(list)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -4188,11 +4188,11 @@ org_location[to]</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::item/note</String>
+																<String>ancestor-or-self::item[not(ancestor::item)]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
-																<String>After</String>
+																<String>Inside as last child</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -4202,53 +4202,23 @@ org_location[to]</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::item/desc</String>
+														<String>ancestor-or-self::item[not(ancestor::item) and list]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;list xmlns="http://www.tei-c.org/ns/1.0">
-  &lt;item xml:id="ed_${id}">
+																<String>&lt;item xmlns="http://www.tei-c.org/ns/1.0" xml:id="ed_${id}">
   &lt;label type="reg">${ask('Begriff ohne Beschreibung')}&lt;/label>
-&lt;/item>
-&lt;/list></String>
+&lt;/item></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::item/desc</String>
+																<String>ancestor-or-self::item[not(ancestor::item)]/list</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
-																<String>After</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::item/label</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&lt;list xmlns="http://www.tei-c.org/ns/1.0">
-  &lt;item xml:id="ed_${id}">
-  &lt;label type="reg">${ask('Begriff ohne Beschreibung')}&lt;/label>
-&lt;/item>
-&lt;/list></String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>ancestor-or-self::item/label</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>After</String>
+																<String>Inside as last child</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
