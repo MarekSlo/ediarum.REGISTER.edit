@@ -347,7 +347,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0" xml:id="ed_${id}">
-  &lt;orgName type="reg">${ask('Name der Einrichtung (ohne Beschreibung)')}&lt;/orgName>
+  &lt;idno>${ask('Einzigartiger, verständlicher Identifikator für die neue Körperschaft:')}&lt;/idno>
 &lt;/org></String>
 															</entry>
 															<entry>
@@ -373,7 +373,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0" xml:id="ed_${id}">
-  &lt;orgName type="reg">${ask('Name der Einrichtung (ohne Beschreibung)')}&lt;/orgName>
+  &lt;idno>${ask('Einzigartiger, verständlicher Identifikator für die neue Körperschaft:')}&lt;/idno>
 &lt;/org></String>
 															</entry>
 															<entry>
@@ -4858,6 +4858,420 @@ general_ptr_2</String>
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::org</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="deu">${ask('Deutsche Bezeichnung:')}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::org[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>register_name_wen</String>
+										</field>
+										<field name="name">
+											<String>Sorbische Bezeichnung</String>
+										</field>
+										<field name="description">
+											<String>Sorbische Bezeichnung des Registereintrags angeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::place</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="wen">${ask('Sorbische Bezeichnung:')}&lt;/placeName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::place[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::org</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="wen">${ask('Sorbische Bezeichnung:')}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::org[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>register_name_dsb</String>
+										</field>
+										<field name="name">
+											<String>Niedersorbische Bezeichnung</String>
+										</field>
+										<field name="description">
+											<String>Niedersorbische Bezeichnung des Registereintrags angeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::place</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="dsb">${ask('Niedersorbische Bezeichnung:')}&lt;/placeName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::place[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::org</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="dsb">${ask('Niedersorbische Bezeichnung:')}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::org[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>register_name_hsb</String>
+										</field>
+										<field name="name">
+											<String>Obersorbische Bezeichnung</String>
+										</field>
+										<field name="description">
+											<String>Obersorbische Bezeichnung des Registereintrags angeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::place</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="hsb">${ask('Obersorbische Bezeichnung:')}&lt;/placeName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::place[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::org</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="hsb">${ask('Obersorbische Bezeichnung:')}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::org[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>register_name_pol</String>
+										</field>
+										<field name="name">
+											<String>Polnische Bezeichnung</String>
+										</field>
+										<field name="description">
+											<String>Polnische Bezeichnung des Registereintrags angeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::place</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="pol">${ask('Polnische Bezeichnung:')}&lt;/placeName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::place[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::org</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="pol">${ask('Polnische Bezeichnung:')}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::org[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>register_name_ces</String>
+										</field>
+										<field name="name">
+											<String>Tschechische Bezeichnung</String>
+										</field>
+										<field name="description">
+											<String>Tschechische Bezeichnung des Registereintrags angeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::place</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ces">${ask('Tschechische Bezeichnung:')}&lt;/placeName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::place[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::org</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ces">${ask('Tschechische Bezeichnung:')}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::org[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -5319,7 +5733,7 @@ general_ptr_2</String>
 											<toolbarSeparator/>
 											<toolbar>
 												<field name="id">
-													<String>Einrichtungsregister</String>
+													<String>Körperschaftsregister</String>
 												</field>
 												<field name="type">
 													<Integer>3</Integer>
@@ -5392,6 +5806,31 @@ general_ptr_2</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>register_name_deu</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>register_name_wen</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>register_name_hsb</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>register_name_dsb</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>register_name_pol</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>register_name_ces</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>

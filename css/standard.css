@@ -41,6 +41,7 @@ persName[type='reg'],
 placeName[type='reg'],
 place > idno:not([type]),
 orgName[type='reg'],
+org > idno:not([type]),
 settlement,
 label[type='reg'] {
     display: block;
@@ -246,6 +247,31 @@ location[from][to]:before {
     color: #555;
 } 
 
+orgName:lang(deu)::before {
+	content:"Deutsch:";
+	width:100px;
+}
+orgName:lang(wen)::before {
+	content:"Serbski:";
+	width:100px;
+}
+orgName:lang(dsb)::before {
+	content:"Dolnoserbski:";
+	width:100px;
+}
+orgName:lang(hsb)::before {
+	content:"Hornjoserbsce:";
+	width:100px;
+}
+orgName:lang(pol)::before {
+	content:"Po polsku:";
+	width:100px;
+}
+orgName:lang(ces)::before {
+	content:"Česky:";
+	width:100px;
+}
+
 /* Places */
 placeName[type="reg"] {
     font-weight: bold;
@@ -256,11 +282,28 @@ placeName[type="alt"] {
      -oxy-placeholder-content: "Alternativer Ortsname";
 }
 
-placeName:lang(deu) {
-	-oxy-placeholder-content: "Deutsche Bezeichnung";
-}
 placeName:lang(deu)::before {
 	content:"Deutsch:";
+	width:100px;
+}
+placeName:lang(wen)::before {
+	content:"Serbski:";
+	width:100px;
+}
+placeName:lang(dsb)::before {
+	content:"Dolnoserbski:";
+	width:100px;
+}
+placeName:lang(hsb)::before {
+	content:"Hornjoserbsce:";
+	width:100px;
+}
+placeName:lang(pol)::before {
+	content:"Po polsku:";
+	width:100px;
+}
+placeName:lang(ces)::before {
+	content:"Česky:";
 	width:100px;
 }
 

@@ -204,20 +204,34 @@
                         <optional>
                             <ref name="idno"/>
                         </optional>
-                        <element name="orgName">
-                            <attribute name="type">
-                                <value>reg</value>
-                            </attribute>
-                            <text/>
-                        </element>
-                        <zeroOrMore>
-                            <element name="orgName">
-                                <attribute name="type">
-                                    <value>alt</value>
-                                </attribute>
-                                <text/>
-                            </element>
-                        </zeroOrMore>
+						<optional>
+							<element name="idno">
+								<text/>
+							</element>
+						</optional>
+						<oneOrMore>
+							<element name="orgName">
+								<optional>
+									<attribute name="type">
+										<choice>
+											<value>reg</value>
+											<value>alt</value>
+										</choice>
+									</attribute>
+								</optional>
+								<attribute name="xml:lang">
+									<choice>
+										<value>deu</value>
+										<value>wen</value>
+										<value>hsb</value>
+										<value>dsb</value>
+										<value>ces</value>
+										<value>pol</value>
+									</choice>
+								</attribute>
+								<text/>
+							</element>
+						</oneOrMore>
                         <optional>
                             <element name="desc">
                                 <ref name="content_note"/>
@@ -412,6 +426,9 @@
                     </choice>
                 </attribute>
             </optional>
+			<optional>
+				<ref name="idno"/>
+			</optional>
 			<optional>
 				<element name="idno">
 					<text/>
