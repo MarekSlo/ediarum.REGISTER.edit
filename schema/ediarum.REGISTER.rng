@@ -221,12 +221,16 @@
 								</optional>
 								<attribute name="xml:lang">
 									<choice>
-										<value>deu</value>
-										<value>wen</value>
-										<value>hsb</value>
-										<value>dsb</value>
 										<value>ces</value>
+										<value>deu</value>
+										<value>dsb</value>
+										<value>eng</value>
+										<value>hsb</value>
+										<value>hun</value>
 										<value>pol</value>
+										<value>rus</value>
+										<value>slk</value>
+										<value>wen</value>
 									</choice>
 								</attribute>
 								<text/>
@@ -446,12 +450,16 @@
 					</optional>
 					<attribute name="xml:lang">
 						<choice>
-							<value>deu</value>
-							<value>wen</value>
-							<value>hsb</value>
-							<value>dsb</value>
 							<value>ces</value>
+							<value>deu</value>
+							<value>dsb</value>
+							<value>eng</value>
+							<value>hsb</value>
+							<value>hun</value>
 							<value>pol</value>
+							<value>rus</value>
+							<value>slk</value>
+							<value>wen</value>
 						</choice>
 					</attribute>
                     <text/>

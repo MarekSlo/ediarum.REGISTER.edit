@@ -56,6 +56,11 @@ label[type='alt'] {
     font-style: italic;
 } 
 
+placeName,
+orgName {
+	display:block;
+}
+
 place listPlace,
 bibl bibl,
 org location,
@@ -247,31 +252,6 @@ location[from][to]:before {
     color: #555;
 } 
 
-orgName:lang(deu)::before {
-	content:"Deutsch:";
-	width:100px;
-}
-orgName:lang(wen)::before {
-	content:"Serbski:";
-	width:100px;
-}
-orgName:lang(dsb)::before {
-	content:"Dolnoserbski:";
-	width:100px;
-}
-orgName:lang(hsb)::before {
-	content:"Hornjoserbsce:";
-	width:100px;
-}
-orgName:lang(pol)::before {
-	content:"Po polsku:";
-	width:100px;
-}
-orgName:lang(ces)::before {
-	content:"Česky:";
-	width:100px;
-}
-
 /* Places */
 placeName[type="reg"] {
     font-weight: bold;
@@ -282,29 +262,19 @@ placeName[type="alt"] {
      -oxy-placeholder-content: "Alternativer Ortsname";
 }
 
-placeName:lang(deu)::before {
-	content:"Deutsch:";
+/* Places and Org */
+placeName::before,
+orgName::before {
 	width:100px;
-}
-placeName:lang(wen)::before {
-	content:"Serbski:";
-	width:100px;
-}
-placeName:lang(dsb)::before {
-	content:"Dolnoserbski:";
-	width:100px;
-}
-placeName:lang(hsb)::before {
-	content:"Hornjoserbsce:";
-	width:100px;
-}
-placeName:lang(pol)::before {
-	content:"Po polsku:";
-	width:100px;
-}
-placeName:lang(ces)::before {
-	content:"Česky:";
-	width:100px;
+	content: 
+		oxy_popup(
+			edit, '@xml:lang', 
+			values, "deu, wen, hsb, dsb, pol, ces, slk, rus, eng, hun", 
+			labels, "Deutsch:, Sorbisch:, Obersorbisch:, Niedersorbisch:, Polnisch:, Tschechisch:, Slowakisch:, Russisch:, Englisch:, Ungarisch:", 
+			selectionMode, single,
+			fontInherit, true,
+			color, "black"
+		) !important;  
 }
 
 /* Bibl */
