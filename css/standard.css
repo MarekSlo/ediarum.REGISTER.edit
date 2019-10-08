@@ -37,7 +37,8 @@ item:focus-within {
     background-color: #e0e0e0;
 }
 
-persName[type='reg'], 
+persName[type='reg'],
+person > idno:not([type]), 
 placeName[type='reg'],
 place > idno:not([type]),
 orgName[type='reg'],
@@ -53,11 +54,12 @@ placeName[type='alt'],
 orgName[type='alt'],
 label[type='alt'] {
     display: block;
-    font-style: italic;
+/*    font-style: italic;	*/
 } 
 
 placeName,
-orgName {
+orgName,
+persName {
 	display:block;
 }
 
@@ -191,44 +193,125 @@ person[role='mythological']:before {
     content: "[Mythologische Person]";   
 }
 
-persName[subtype='birthname']:before {
-    content: "Geburtsname: ";
-    color: #666;
+person[sex]::after {
+	content:
+		"Geschlecht:      "
+		oxy_popup(
+			edit, '@sex', 
+			values, "f, m", 
+			labels, "weiblich, männlich", 
+			selectionMode, single,
+			fontInherit, true,
+			color, "black"
+		) !important; 
 }
 
-persName[subtype='pseudonym']:before {
-    content: "Pseudonym: ";
-    color: #666;
+persName {
+	-oxy-placeholder-content:"<Namenstyp einfügen aus Werkzeugleiste>";
+	-oxy-show-placeholder:always;
 }
 
-surname {
-    -oxy-placeholder-content: "Nachname";
+persName::before {
+	width:100px;
+	content: 
+		oxy_popup(
+			edit, '@xml:lang', 
+			values, "deu, wen, hsb, dsb, pol, ces, slk, rus, eng, hun", 
+			labels, "Deutsch:, Sorbisch:, Obersorbisch:, Niedersorbisch:, Polnisch:, Tschechisch:, Slowakisch:, Russisch:, Englisch:, Ungarisch:", 
+			selectionMode, single,
+			fontInherit, true,
+			color, "black"
+		);  
+}
+persName[subtype="birthname"]::before {
+	width:100px;
+	content: 
+		oxy_popup(
+			edit, '@xml:lang', 
+			values, "deu, wen, hsb, dsb, pol, ces, slk, rus, eng, hun", 
+			labels, "Deutsch – Geburtsname:, Sorbisch – Geburtsname:, Obersorbisch – Geburtsname:, Niedersorbisch – Geburtsname:, Polnisch – Geburtsname:, Tschechisch – Geburtsname:, Slowakisch – Geburtsname:, Russisch – Geburtsname:, Englisch – Geburtsname:, Ungarisch – Geburtsname:", 
+			selectionMode, single,
+			fontInherit, true,
+			color, "black"
+		) 
+}
+persName[subtype="pseudonym"]::before {
+	width:100px;
+	content: 
+		oxy_popup(
+			edit, '@xml:lang', 
+			values, "deu, wen, hsb, dsb, pol, ces, slk, rus, eng, hun", 
+			labels, "Deutsch – Pseudonym:, Sorbisch – Pseudonym:, Obersorbisch – Pseudonym:, Niedersorbisch – Pseudonym:, Polnisch – Pseudonym:, Tschechisch – Pseudonym:, Slowakisch – Pseudonym:, Russisch – Pseudonym:, Englisch – Pseudonym:, Ungarisch – Pseudonym:", 
+			selectionMode, single,
+			fontInherit, true,
+			color, "black"
+		) 
 }
 
-forename {
-    -oxy-placeholder-content: "Vorname(n)";
+
+
+name,
+surname,
+forename,
+nameLink,
+addName,
+roleName,
+genName {
+    -oxy-placeholder-content: "?";
     -oxy-show-placeholder: always;
+	display:block;
+	padding-left:25px;
 }
-
-forename:before {
-    content: ", ";
+name::before,
+surname::before,
+forename::before,
+nameLink::before,
+addName::before,
+roleName::before,
+genName::before {
+	width:125px;
+}
+name::before {
+	content:"Einfacher Name";
+}
+surname::before {
+	content:"Nachname:";
+}
+forename::before {
+	content:"Vorname(n):";
+}
+nameLink::before {
+	content:"Adelsprädikat:";
+}
+addName::before {
+	content:"Beiname:";
+}
+roleName::before {
+	content:"Titulatur:";
+}
+genName::before {
+	content:"Generationsname:";
 }
 
 birth {
-    -oxy-placeholder-content: "Geburtsjahr?";
+    display:block;
+	-oxy-placeholder-content:"?";
+	-oxy-show-placeholder:always;
+}
+birth::before {
+	content:"Geboren:";
+	width:100px;
 }
 
 death {
-    -oxy-placeholder-content: "Todesjahr?";
-    -oxy-show-placeholder: always;
+    display:block;
+	-oxy-placeholder-content:"?";
+	-oxy-show-placeholder:always;
 }
 
 death:before {
-    content: "-";
-}
-
-death + birth:before  {
-    content: "\A";
+    content:"Gestorben:";
+	width:100px;
 }
 
 floruit:before {

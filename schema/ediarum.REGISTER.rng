@@ -127,37 +127,68 @@
                         <optional>
                             <ref name="idno"/>
                         </optional>
-                        <element name="persName">
-                            <attribute name="type">
-                                <value>reg</value>
-                            </attribute>
-                            <ref name="content_persName"/>
-                        </element>
-                        <zeroOrMore>
+						<optional>
+							<element name="idno">
+								<text/>
+							</element>
+						</optional>
+                        <oneOrMore>
                             <element name="persName">
-                                <attribute name="type">
-                                    <value>alt</value>
-                                </attribute>
+								<attribute name="xml:lang">
+									<choice>
+										<value>deu</value>
+										<value>dsb</value>
+										<value>hsb</value>
+										<value>wen</value>
+									</choice>
+								</attribute>
                                 <optional>
+									<attribute name="type">
+										<value>alt</value>
+									</attribute>
                                     <attribute name="subtype">
                                         <choice>
-                                          <value>birthname</value>
-                                          <value>pseudonym</value>
+											<value>birthname</value>
+											<value>pseudonym</value>
                                         </choice>
                                     </attribute>
                                 </optional>
+								<optional>
+									<attribute name="sex">
+										<choice>
+											<value>f</value>
+											<value>m</value>
+										</choice>
+									</attribute>
+								</optional>
                                 <ref name="content_persName"/>
                             </element>
-                        </zeroOrMore>
+                        </oneOrMore>
                         <optional>
                             <choice>
                                 <group>
-                                    <element name="birth">
-                                        <text/>
-                                    </element>
-                                    <element name="death">
-                                        <text/>
-                                    </element>
+									<interleave>
+										<element name="birth">
+											<text/>
+										</element>
+										<optional>
+											<element name="death">
+												<text/>
+											</element>
+										</optional>
+									</interleave>
+                                </group>
+                                <group>
+									<interleave>
+										<element name="death">
+											<text/>
+										</element>
+										<optional>
+											<element name="birth">
+												<text/>
+											</element>
+										</optional>
+									</interleave>
                                 </group>
                                 <group>
                                     <element name="floruit">
@@ -681,20 +712,127 @@
         </optional>
     </define>
     <define name="content_persName">
-        <choice>
-            <group>
-                <element name="name">
-                    <text/>
-                </element>
-            </group>
-            <group>
-                <element name="surname">
-                    <text/>
-                </element>
-                <element name="forename">
-                    <text/>
-                </element>
-            </group>
-        </choice>
+		<choice>
+			<group>
+				<element name="name">
+					<text/>
+				</element>
+			</group>
+			<group>
+				<interleave>
+					<element name="forename">
+						<text/>
+					</element>
+					<optional>
+						<element name="nameLink">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="surname">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="genName">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="roleName">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="addName">
+							<text/>
+						</element>
+					</optional>
+				</interleave>
+			</group>
+			<group>
+				<interleave>
+					<element name="nameLink">
+						<text/>
+					</element>
+					<optional>
+						<element name="surname">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="genName">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="roleName">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="addName">
+							<text/>
+						</element>
+					</optional>
+				</interleave>
+			</group>
+			<group>
+				<interleave>
+					<element name="surname">
+						<text/>
+					</element>
+					<optional>
+						<element name="genName">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="roleName">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="addName">
+							<text/>
+						</element>
+					</optional>
+				</interleave>
+			</group>
+			<group>
+				<interleave>
+					<element name="genName">
+						<text/>
+					</element>
+					<optional>
+						<element name="roleName">
+							<text/>
+						</element>
+					</optional>
+					<optional>
+						<element name="addName">
+							<text/>
+						</element>
+					</optional>
+				</interleave>
+			</group>
+			<group>
+				<interleave>
+					<element name="roleName">
+						<text/>
+					</element>
+					<optional>
+						<element name="addName">
+							<text/>
+						</element>
+					</optional>
+				</interleave>
+			</group>
+			<group>
+				<element name="addName">
+					<text/>
+				</element>
+			</group>
+		</choice>
     </define>
 </grammar>
