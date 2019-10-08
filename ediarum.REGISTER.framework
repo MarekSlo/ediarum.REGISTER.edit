@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="17.1" xml:space="preserve">
+<serialized version="19.1" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -189,7 +189,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0" xml:id="ed_${id}">
-  &lt;placeName type="reg">${ask('Ortsname (ohne Zusätze)')}&lt;/placeName>
+  &lt;idno>${ask('Einzigartiger, verständlicher Identifikator für den neuen Ort:')}&lt;/idno>
 &lt;/place></String>
 															</entry>
 															<entry>
@@ -215,7 +215,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0" xml:id="ed_${id}">
-  &lt;placeName type="reg">${ask('Ortsname (ohne Zusätze)')}&lt;/placeName>
+  &lt;idno>${ask('Einzigartiger, verständlicher Identifikator für den neuen Ort:')}&lt;/idno>
 &lt;/place></String>
 															</entry>
 															<entry>
@@ -1257,7 +1257,7 @@
 																<String>fragment</String>
 																<String>&lt;listPlace xmlns="http://www.tei-c.org/ns/1.0">
   &lt;place xml:id="ediarum_${id}" type="${ask('', radio, ('building':'Gebäude';'street':'Straße';'district':'Stadtteil'))}">
-          &lt;placeName type="reg">${ask('Name eingeben')}&lt;/placeName>
+    &lt;idno>${ask('Einzigartiger, verständlicher Identifikator für den neuen Unterort:')}&lt;/idno>
   &lt;/place>
 &lt;/listPlace></String>
 															</entry>
@@ -1284,9 +1284,8 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0" xml:id="ediarum_${id}" type="${ask('', radio, ('building':'Gebäude';'street':'Straße';'district':'Stadtteil'))}">
-        &lt;placeName type="reg">${ask('Name eingeben')}&lt;/placeName>
-&lt;/place>
-</String>
+  &lt;idno>${ask('Einzigartiger, verständlicher Identifikator für den neuen Unterort:')}&lt;/idno>
+&lt;/place></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -4811,6 +4810,60 @@ general_ptr_2</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>register_name_deu</String>
+										</field>
+										<field name="name">
+											<String>Deutsche Bezeichnung</String>
+										</field>
+										<field name="description">
+											<String>Deutsche Bezeichnung des Registereintrags angeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::place</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0" xml:lang="deu">${ask('Deutsche Bezeichnung:')}&lt;/placeName></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::place[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -4826,6 +4879,9 @@ general_ptr_2</String>
 									</field>
 									<field name="menuEntriesDescriptorList">
 										<menuEntry-array/>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -4945,8 +5001,14 @@ general_ptr_2</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 										</menuEntry-array>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -5312,6 +5374,29 @@ general_ptr_2</String>
 													</toolbarEntry-array>
 												</field>
 											</toolbar>
+											<toolbar>
+												<field name="id">
+													<String>Sprachvarianten</String>
+												</field>
+												<field name="type">
+													<Integer>3</Integer>
+												</field>
+												<field name="largeIconPath">
+													<String></String>
+												</field>
+												<field name="smallIconPath">
+													<String></String>
+												</field>
+												<field name="toolbarEntriesDescriptorList">
+													<toolbarEntry-array>
+														<toolbarItem>
+															<field name="actionID">
+																<String>register_name_deu</String>
+															</field>
+														</toolbarItem>
+													</toolbarEntry-array>
+												</field>
+											</toolbar>
 										</toolbarEntry-array>
 									</field>
 								</toolbar>
@@ -5332,16 +5417,28 @@ general_ptr_2</String>
 							<field name="tableSupportClassName">
 								<null/>
 							</field>
+							<field name="tableCellSeparatorSupportClassName">
+								<null/>
+							</field>
 							<field name="tableColWidthSupportClassName">
 								<null/>
 							</field>
 							<field name="customReferencesResolver">
 								<null/>
 							</field>
+							<field name="editPropertiesHandler">
+								<null/>
+							</field>
 							<field name="authorExtensionStateListener">
 								<null/>
 							</field>
 							<field name="attributesRecognizer">
+								<null/>
+							</field>
+							<field name="authorActionEventHandler">
+								<null/>
+							</field>
+							<field name="authorImageDecorator">
 								<null/>
 							</field>
 						</authorExtension>
@@ -5496,6 +5593,9 @@ general_ptr_2</String>
 						<null/>
 					</field>
 					<field name="customAttributeValueEditor">
+						<null/>
+					</field>
+					<field name="textModeExternalObjectInsertionHandler">
 						<null/>
 					</field>
 				</documentTypeDescriptor>

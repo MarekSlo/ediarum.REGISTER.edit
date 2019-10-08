@@ -39,6 +39,7 @@ item:focus-within {
 
 persName[type='reg'], 
 placeName[type='reg'],
+place > idno:not([type]),
 orgName[type='reg'],
 settlement,
 label[type='reg'] {
@@ -68,13 +69,13 @@ item list item:last-child {
     border-bottom: 0;
 }
 
-idno {
+idno[type] {
     -oxy-display-tags:none;
     display:block;
     font-size:9pt;
 }
 
-idno:after {
+idno[type]:after {
     content: " " url('gfx/ref_black_small.png');
     link: oxy_xpath('text()');
 }
@@ -253,6 +254,14 @@ placeName[type="reg"] {
 
 placeName[type="alt"] {
      -oxy-placeholder-content: "Alternativer Ortsname";
+}
+
+placeName:lang(deu) {
+	-oxy-placeholder-content: "Deutsche Bezeichnung";
+}
+placeName:lang(deu)::before {
+	content:"Deutsch:";
+	width:100px;
 }
 
 /* Bibl */

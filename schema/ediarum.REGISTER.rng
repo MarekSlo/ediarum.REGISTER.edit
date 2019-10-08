@@ -412,17 +412,31 @@
                     </choice>
                 </attribute>
             </optional>
-            <zeroOrMore>
-                <ref name="idno"/>
-            </zeroOrMore>
+			<optional>
+				<element name="idno">
+					<text/>
+				</element>
+			</optional>
             <oneOrMore>
                 <element name="placeName">
-                    <attribute name="type">
-                        <choice>
-                            <value>reg</value>
-                            <value>alt</value>
-                        </choice>
-                    </attribute>
+					<optional>
+						<attribute name="type">
+							<choice>
+								<value>reg</value>
+								<value>alt</value>
+							</choice>
+						</attribute>
+					</optional>
+					<attribute name="xml:lang">
+						<choice>
+							<value>deu</value>
+							<value>wen</value>
+							<value>hsb</value>
+							<value>dsb</value>
+							<value>ces</value>
+							<value>pol</value>
+						</choice>
+					</attribute>
                     <text/>
                 </element>
             </oneOrMore>
