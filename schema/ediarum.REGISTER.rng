@@ -408,6 +408,7 @@
                     <choice>
                         <value>street</value>
                         <value>building</value>
+						<value>district</value>
                     </choice>
                 </attribute>
             </optional>
