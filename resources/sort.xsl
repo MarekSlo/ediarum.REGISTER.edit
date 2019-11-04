@@ -10,8 +10,9 @@
     <xsl:template match="tei:body/tei:listPerson">
         <xsl:copy>
             <xsl:apply-templates select="./tei:person">
-                <xsl:sort select=".//tei:persName[@type = 'reg']/(tei:surname|tei:name)/normalize-space()" lang="de"/>
-                <xsl:sort select=".//tei:persName[@type = 'reg']/tei:forename/normalize-space()" lang="de"/>
+<!--            <xsl:sort select=".//tei:persName[@type = 'reg']/(tei:surname|tei:name)/normalize-space()" lang="de"/>	-->
+<!--            <xsl:sort select=".//tei:persName[@type = 'reg']/tei:forename/normalize-space()" lang="de"/>	-->
+                <xsl:sort select="tei:idno[not(@type)]/normalize-space()" lang="de"/>
             </xsl:apply-templates>
         </xsl:copy>
     </xsl:template>
@@ -19,7 +20,8 @@
     <xsl:template match="tei:body/tei:listPlace">
         <xsl:copy>
             <xsl:apply-templates select="./tei:place">
-                <xsl:sort select="tei:placeName[@type = 'reg']/normalize-space()" lang="de"/>
+<!--            <xsl:sort select="tei:placeName[@type = 'reg']/normalize-space()" lang="de"/>	-->
+                <xsl:sort select="tei:idno[not(@type)]/normalize-space()" lang="de"/>
             </xsl:apply-templates>
         </xsl:copy>
     </xsl:template>
@@ -27,7 +29,8 @@
     <xsl:template match="tei:body/tei:listOrg">
         <xsl:copy>
             <xsl:apply-templates select="./tei:org">
-                <xsl:sort select="tei:orgName[@type = 'reg']/normalize-space()" lang="de"/>
+<!--            <xsl:sort select="tei:orgName[@type = 'reg']/normalize-space()" lang="de"/>	-->
+                <xsl:sort select="tei:idno[not(@type)]/normalize-space()" lang="de"/>
             </xsl:apply-templates>
         </xsl:copy>
     </xsl:template>
