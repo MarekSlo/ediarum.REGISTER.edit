@@ -2950,7 +2950,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::person[persName and not(persName[@subtype='birthname'])]</String>
+														<String>ancestor-or-self::person[persName]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -2976,7 +2976,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::person[not(persName[@subtype='birthname'])]</String>
+														<String>ancestor-or-self::person</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

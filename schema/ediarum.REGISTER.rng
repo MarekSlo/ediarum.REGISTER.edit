@@ -144,9 +144,15 @@
                             <element name="persName">
 								<attribute name="xml:lang">
 									<choice>
+										<value>ces</value>
 										<value>deu</value>
 										<value>dsb</value>
+										<value>eng</value>
 										<value>hsb</value>
+										<value>hun</value>
+										<value>pol</value>
+										<value>rus</value>
+										<value>slk</value>
 										<value>wen</value>
 									</choice>
 								</attribute>
